@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://1l88th82a7sg"]
+
+[ext_resource type="PackedScene" uid="uid://ce43ema6vs1hw" path="res://core/ui/debug/frame_rate_label.tscn" id="2_4uxod"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1brx"]
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 0.862745)
+
+[node name="DebugCanvas" type="CanvasLayer"]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -39.0
+offset_bottom = 22.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g1brx")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="FrameRateLabel" parent="PanelContainer/MarginContainer" instance=ExtResource("2_4uxod")]
+layout_mode = 2

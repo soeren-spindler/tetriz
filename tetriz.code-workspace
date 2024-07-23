@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"godotTools.inlayHints.gdscript": true,
+		"godotTools.lsp.autoReconnect.attempts": 5,
+		"editor.insertSpaces": false,
+		"editor.indentSize": "tabSize",
+		"editor.detectIndentation": true
+	}
+}

@@ -1,0 +1,175 @@
+[gd_scene load_steps=21 format=4 uid="uid://cixvtv3fikbvn"]
+
+[ext_resource type="Script" path="res://scenes/game/game.gd" id="1_orypc"]
+[ext_resource type="Texture2D" uid="uid://dpttqc46j0fl2" path="res://assets/textures/tilesets/Tile C.png" id="2_0f1dc"]
+[ext_resource type="Script" path="res://core/pieces/piece_system.gd" id="2_8h7xb"]
+[ext_resource type="Script" path="res://scenes/game/game_tile_map.gd" id="3_m7ayj"]
+[ext_resource type="TetrizPiece" uid="uid://b2takd4frxq1c" path="res://pieces/000.tres" id="3_uyvho"]
+[ext_resource type="Texture2D" uid="uid://02cxsgqqvdre" path="res://assets/textures/tilesets/Tile B.png" id="3_visin"]
+[ext_resource type="TetrizPiece" uid="uid://2kbgsqjosvdx" path="res://pieces/001.tres" id="4_6s6fb"]
+[ext_resource type="TetrizPiece" uid="uid://d6015m2ay5xe" path="res://pieces/002.tres" id="5_l6k26"]
+[ext_resource type="TetrizPiece" uid="uid://pjfhu1nijqed" path="res://pieces/003.tres" id="6_uac4t"]
+[ext_resource type="TetrizPiece" uid="uid://bnq7ufm0xciql" path="res://pieces/004.tres" id="7_gwoor"]
+[ext_resource type="TetrizPiece" uid="uid://dkjblmgprg4dj" path="res://pieces/005.tres" id="8_6prlx"]
+[ext_resource type="TetrizPiece" uid="uid://d21s56gxscs6v" path="res://pieces/006.tres" id="9_2u8qy"]
+[ext_resource type="Script" path="res://core/gameplay/time_system.gd" id="11_k232y"]
+[ext_resource type="Script" path="res://core/gameplay/gameplay_system.gd" id="11_u7et0"]
+[ext_resource type="PackedScene" uid="uid://bqgdpjbm6slu8" path="res://scenes/game/ui/game_sidebar.tscn" id="15_cgj8s"]
+[ext_resource type="Script" path="res://scenes/game/ui/game_interface_canvas.gd" id="16_01bo6"]
+[ext_resource type="PackedScene" uid="uid://1l88th82a7sg" path="res://scenes/game/ui/debug_canvas.tscn" id="18_a0atl"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hhwch"]
+resource_name = "Board"
+texture = ExtResource("2_0f1dc")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/custom_data_0 = true
+1:0/0 = 0
+1:0/0/custom_data_0 = true
+2:0/0 = 0
+2:0/0/custom_data_0 = true
+3:0/0 = 0
+3:0/0/custom_data_0 = true
+0:1/0 = 0
+0:1/0/custom_data_0 = true
+1:1/0 = 0
+1:1/0/custom_data_0 = true
+2:1/0 = 0
+2:1/0/custom_data_0 = true
+3:1/0 = 0
+3:1/0/custom_data_0 = true
+0:2/0 = 0
+0:2/0/custom_data_0 = true
+1:2/0 = 0
+1:2/0/custom_data_0 = true
+2:2/0 = 0
+2:2/0/custom_data_0 = true
+3:2/0 = 0
+3:2/0/custom_data_0 = true
+0:3/0 = 0
+0:3/0/custom_data_0 = true
+1:3/0 = 0
+1:3/0/custom_data_0 = true
+2:3/0 = 0
+2:3/0/custom_data_0 = true
+3:3/0 = 0
+3:3/0/custom_data_0 = true
+0:4/0 = 0
+0:4/0/custom_data_0 = true
+1:4/0 = 0
+1:4/0/custom_data_0 = true
+2:4/0 = 0
+2:4/0/custom_data_0 = true
+3:4/0 = 0
+3:4/0/custom_data_0 = true
+0:5/0 = 0
+0:5/0/custom_data_0 = true
+1:5/0 = 0
+1:5/0/custom_data_0 = true
+2:5/0 = 0
+2:5/0/custom_data_0 = true
+3:5/0 = 0
+3:5/0/custom_data_0 = true
+0:6/0 = 0
+0:6/0/custom_data_0 = true
+1:6/0 = 0
+1:6/0/custom_data_0 = true
+2:6/0 = 0
+2:6/0/custom_data_0 = true
+3:6/0 = 0
+3:6/0/custom_data_0 = true
+0:7/0 = 0
+0:7/0/custom_data_0 = true
+1:7/0 = 0
+1:7/0/custom_data_0 = true
+2:7/0 = 0
+2:7/0/custom_data_0 = true
+3:7/0 = 0
+3:7/0/custom_data_0 = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ckegw"]
+resource_name = "Pieces"
+texture = ExtResource("3_visin")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/custom_data_1 = true
+1:0/0 = 0
+1:0/0/custom_data_1 = true
+2:0/0 = 0
+2:0/0/custom_data_1 = true
+3:0/0 = 0
+3:0/0/custom_data_1 = true
+0:1/0 = 0
+0:1/0/custom_data_1 = true
+1:1/0 = 0
+1:1/0/custom_data_1 = true
+2:1/0 = 0
+2:1/0/custom_data_1 = true
+3:1/0 = 0
+3:1/0/custom_data_1 = true
+0:2/0 = 0
+0:2/0/custom_data_1 = true
+1:2/0 = 0
+1:2/0/custom_data_1 = true
+2:2/0 = 0
+2:2/0/custom_data_1 = true
+3:2/0 = 0
+3:2/0/custom_data_1 = true
+0:3/0 = 0
+0:3/0/custom_data_1 = true
+1:3/0 = 0
+1:3/0/custom_data_1 = true
+2:3/0 = 0
+2:3/0/custom_data_1 = true
+3:3/0 = 0
+3:3/0/custom_data_1 = true
+
+[sub_resource type="TileSet" id="TileSet_kitds"]
+tile_size = Vector2i(32, 32)
+custom_data_layer_0/name = "IsBorder"
+custom_data_layer_0/type = 1
+custom_data_layer_1/name = "IsPiece"
+custom_data_layer_1/type = 1
+sources/0 = SubResource("TileSetAtlasSource_hhwch")
+sources/1 = SubResource("TileSetAtlasSource_ckegw")
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_orypc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.2, 1.2)
+
+[node name="PieceSystem" type="Node" parent="."]
+script = ExtResource("2_8h7xb")
+pieces = Array[TetrizPiece]([ExtResource("3_uyvho"), ExtResource("4_6s6fb"), ExtResource("5_l6k26"), ExtResource("6_uac4t"), ExtResource("7_gwoor"), ExtResource("8_6prlx"), ExtResource("9_2u8qy")])
+
+[node name="TimeSystem" type="Node" parent="."]
+script = ExtResource("11_k232y")
+
+[node name="GameplaySystem" type="Node" parent="." node_paths=PackedStringArray("game_interface_canvas", "game_sidebar", "time_system", "piece_system", "game_tile_map")]
+script = ExtResource("11_u7et0")
+tick_speed_seconds = 3.0
+game_interface_canvas = NodePath("../GameInterfaceCanvas")
+game_sidebar = NodePath("../GameInterfaceCanvas/GameSidebar")
+time_system = NodePath("../TimeSystem")
+piece_system = NodePath("../PieceSystem")
+game_tile_map = NodePath("../GameTileMap")
+
+[node name="GameTileMap" type="TileMapLayer" parent="."]
+position = Vector2(0, 2)
+tile_map_data = PackedByteArray("AAD//wcAAAACAAEAAAAAAAcAAAACAAEAAAABAAcAAAACAAEAAAACAAcAAAACAAEAAAADAAcAAAACAAEAAAAEAAcAAAACAAEAAAAFAAcAAAACAAEAAAAGAAcAAAACAAEAAAAHAAcAAAACAAEAAAAIAAcAAAACAAEAAAAJAAcAAAACAAEAAAD+//j/AAACAAEAAAD///j/AAACAAEAAAAAAPj/AAACAAEAAAABAPj/AAACAAEAAAACAPj/AAACAAEAAAADAPj/AAACAAEAAAAEAPj/AAACAAEAAAAFAPj/AAADAAAAAAAGAPj/AAACAAAAAAAHAPj/AAACAAEAAAAIAPj/AAACAAEAAAAJAPj/AAACAAEAAAD+//n/AAACAAEAAAD+//r/AAACAAEAAAD+//v/AAACAAEAAAD+//z/AAACAAEAAAD+//3/AAACAAEAAAD+//7/AAACAAEAAAD+////AAACAAEAAAD+/wAAAAACAAEAAAD+/wEAAAACAAEAAAD+/wIAAAACAAEAAAD+/wMAAAACAAAAAAD+/wQAAAACAAEAAAD+/wUAAAACAAEAAAD+/wYAAAACAAEAAAD+/wcAAAACAAEAAAAJAAYAAAACAAAAAAAJAPn/AAADAAAAAAAJAPr/AAADAAAAAAAJAPv/AAADAAAAAAAJAPz/AAADAAAAAAAJAP3/AAADAAAAAAAJAP7/AAADAAAAAAAJAP//AAADAAAAAAAJAAAAAAADAAAAAAAJAAEAAAADAAAAAAAJAAIAAAADAAAAAAAJAAMAAAADAAAAAAAJAAQAAAADAAAAAAAJAAUAAAADAAAAAAA=")
+tile_set = SubResource("TileSet_kitds")
+script = ExtResource("3_m7ayj")
+
+[node name="GameInterfaceCanvas" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+script = ExtResource("16_01bo6")
+
+[node name="GameSidebar" parent="GameInterfaceCanvas" node_paths=PackedStringArray("time_system", "gameplay_system") instance=ExtResource("15_cgj8s")]
+offset_right = 176.0
+offset_bottom = 223.0
+time_system = NodePath("../../TimeSystem")
+gameplay_system = NodePath("../../GameplaySystem")
+metadata/_edit_use_anchors_ = true
+
+[node name="DebugCanvas" parent="." instance=ExtResource("18_a0atl")]

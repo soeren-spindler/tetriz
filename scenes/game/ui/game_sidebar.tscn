@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqgdpjbm6slu8"]
+
+[ext_resource type="Script" path="res://scenes/game/ui/game_sidebar.gd" id="1_yc4a0"]
+[ext_resource type="PackedScene" uid="uid://bjltvrgp66n4g" path="res://scenes/pieces/piece_preview.tscn" id="2_7ropv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6mu4v"]
+bg_color = Color(0.336608, 0.336608, 0.336608, 1)
+
+[node name="GameSidebar" type="PanelContainer"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_6mu4v")
+script = ExtResource("1_yc4a0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="TimeContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TimeLabel" type="Label" parent="MarginContainer/VBoxContainer/TimeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "<Time>"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="NextPieceLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Next piece:"
+vertical_alignment = 1
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/VBoxContainer/VBoxContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(128, 128)
+render_target_update_mode = 4
+
+[node name="PiecePreview" parent="MarginContainer/VBoxContainer/VBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("2_7ropv")]
+unique_name_in_owner = true
+scale = Vector2(0.8, 0.8)
+
+[node name="Camera2D" type="Camera2D" parent="MarginContainer/VBoxContainer/VBoxContainer/SubViewportContainer/SubViewport"]

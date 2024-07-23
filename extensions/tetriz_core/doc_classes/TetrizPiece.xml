@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="TetrizPiece" inherits="Resource" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/godotengine/godot/master/doc/class.xsd">
+	<brief_description>
+	Description of a Tetriz piece.
+	</brief_description>
+	<description>
+	A piece in Tetrix is described through its cell coordinates.
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="get_size" qualifiers="const">
+			<return type="Vector2i" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="cell_coords" type="Vector2i[]" setter="set_cell_coords" getter="get_cell_coords" default="[]">
+		</member>
+	</members>
+</class>
