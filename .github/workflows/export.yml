@@ -19,11 +19,18 @@ jobs:
           pip3 install scons
       - name: Setup godot
         run: |
-          wget -O Godot.zip https://github.com/godotengine/godot-builds/releases/download/4.3-beta3/Godot_v4.3-beta3_linux.x86_64.zip
           mkdir ${{ github.workspace }}/.godot_install
+          wget -O Godot.zip https://github.com/godotengine/godot-builds/releases/download/4.3-beta3/Godot_v4.3-beta3_linux.x86_64.zip
           unzip Godot.zip -d ${{ github.workspace }}/.godot_install
           mv ${{ github.workspace }}/.godot_install/Godot_v4.3-beta3_linux.x86_64 ${{ github.workspace }}/.godot_install/godot
           echo "${{ github.workspace }}/.godot_install/" >> $GITHUB_PATH
+      - name: Download godot export templates
+        run: |
+          wget -O Godot_Export_Templates.zip https://github.com/godotengine/godot-builds/releases/download/4.3-beta3/Godot_v4.3-beta3_export_templates.tpz
+          mkdir temp
+          unzip Godot_Export_Templates.zip -d temp/
+          sudo cp -r temp/templates/** /home/runner/.local/share/godot/export_templates/4.3.beta3/
+          rm -rf temp
       - name: Verifiy godot
         run: godot --version
       - name: Setup emsdk
@@ -44,7 +51,7 @@ jobs:
       - name: Run export
         run: |
           mkdir -p dist/web
-          godot --headless --export-release "Web" dist/web/catris.html
+          godot --headless --path ${{ github.workspace }} --export-release "Web" dist/web/catris.html
           cd dist/web
           tar -czvf catris_web.tgz *
           cd ${{ github.workspace }}
