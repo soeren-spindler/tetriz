@@ -41,6 +41,20 @@ jobs:
       #  run: |
       #    cd extensions/tetriz_core
       #    scons platform=web target=template_release threads=no
+      - name: Run export
+        run: |
+          mkdir -p dist/web
+          godot --headless --export-release "Web" dist/web/catris.html
+          cd dist/web
+          tar -czvf catris_web.tgz *
+          cd ${{ github.workspace }}
+      - uses: actions/upload-artifact@v4
+        with:
+          # Name of the artifact to upload.
+          # Optional. Default is 'artifact'
+          name: "catris_web"
       
-          
-      
+          # A file, directory or wildcard pattern that describes what to upload
+          # Required.
+          path: dist/web/catris_web.tgz
+              
