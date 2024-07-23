@@ -12,8 +12,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Install dependencies
         run: |
-          apt-get update
-          apt-get install python3
+          sudo apt-get update
+          sudo apt-get install python3
           pip3 install scons
       - name: Setup emsdk
         uses: mymindstorm/setup-emsdk@v14
