@@ -10,6 +10,11 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          apt-get update
+          apt-get install python3
+          pip3 install scons
       - name: Setup emsdk
         uses: mymindstorm/setup-emsdk@v14
         with:
@@ -21,4 +26,9 @@ jobs:
           actions-cache-folder: 'emsdk-cache'
       - name: Verify emcc
         run: emcc -v
+      - name: Compile GDExtensions
+        run: |
+          cd extensions/tetriz_core
+          scons platform=web target=template_release threads=no
+          
       
