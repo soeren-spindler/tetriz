@@ -20,10 +20,10 @@ jobs:
       - name: Setup godot
         run: |
           wget -O Godot.zip https://github.com/godotengine/godot-builds/releases/download/4.3-beta3/Godot_v4.3-beta3_linux.x86_64.zip
-          mkdir .godot_install
-          unzip Godot.zip -d .godot_install
-          mv .godot_install/Godot_v4.3-beta3_linux.x86_64 .godot_install/godot
-          echo "GITHUB_SHA_SHORT=$(pwd)/.godot_install/" >> $GITHUB_ENV
+          mkdir ${{ github.workspace }}/.godot_install
+          unzip Godot.zip -d ${{ github.workspace }}/.godot_install
+          mv ${{ github.workspace }}/.godot_install/Godot_v4.3-beta3_linux.x86_64 ${{ github.workspace }}/.godot_install/godot
+          echo "${{ github.workspace }}/.godot_install/" >> $GITHUB_PATH
       - name: Verifiy godot
         run: godot --version
       #- name: Setup emsdk
