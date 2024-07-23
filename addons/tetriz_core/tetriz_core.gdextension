@@ -10,6 +10,9 @@ compatibility_minimum = "4.3"
 
 [libraries]
 
+web.debug.wasm32 = "res://addons/tetriz_core/libtetriz_core.web.template_debug.wasm32.wasm"
+web.release.wasm32 = "res://addons/tetriz_core/libtetriz_core.web.template_release.wasm32.wasm"
+web.release.wasm32.nothreads = "res://addons/tetriz_core/libtetriz_core.web.template_release.wasm32.nothreads.wasm"
 macos.debug = "res://addons/tetriz_core/libtetriz_core.macos.template_debug.framework"
 macos.release = "res://addons/tetriz_core/libtetriz_core.macos.template_release.framework"
 windows.debug.x86_32 = "res://addons/tetriz_core/libtetriz_core.windows.template_debug.x86_32.dll"

@@ -1,3 +1,6 @@
 bin
-**/src/gen
 **/*scons*.dblite
+**/src/gen
+**/*.obj
+**/*.o
+**/*.tmp
