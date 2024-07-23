@@ -26,21 +26,21 @@ jobs:
           echo "${{ github.workspace }}/.godot_install/" >> $GITHUB_PATH
       - name: Verifiy godot
         run: godot --version
-      #- name: Setup emsdk
-      #  uses: mymindstorm/setup-emsdk@v14
-      #  with:
-      #    # Make sure to set a version number!
-      #    version: 3.1.64
-      #    # This is the name of the cache folder.
-      #    # The cache folder will be placed in the build directory,
-      #    #  so make sure it doesn't conflict with anything!
-      #    actions-cache-folder: 'emsdk-cache'
-      #- name: Verify emcc
-      #  run: emcc -v
-      #- name: Compile GDExtensions
-      #  run: |
-      #    cd extensions/tetriz_core
-      #    scons platform=web target=template_release threads=no
+      - name: Setup emsdk
+        uses: mymindstorm/setup-emsdk@v14
+        with:
+          # Make sure to set a version number!
+          version: 3.1.64
+          # This is the name of the cache folder.
+          # The cache folder will be placed in the build directory,
+          #  so make sure it doesn't conflict with anything!
+          actions-cache-folder: 'emsdk-cache'
+      - name: Verify emcc
+        run: emcc -v
+      - name: Compile GDExtensions
+        run: |
+          cd extensions/tetriz_core
+          scons platform=web target=template_release threads=no
       - name: Run export
         run: |
           mkdir -p dist/web
