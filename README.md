@@ -1,4 +1,4 @@
-# Drug Empire Simulator
+# Catris
 
 ## Style guide
 
