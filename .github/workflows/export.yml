@@ -29,6 +29,7 @@ jobs:
           wget -O Godot_Export_Templates.zip https://github.com/godotengine/godot-builds/releases/download/4.3-beta3/Godot_v4.3-beta3_export_templates.tpz
           mkdir temp
           unzip Godot_Export_Templates.zip -d temp/
+          sudo mkdir -p /home/runner/.local/share/godot/export_templates/4.3.beta3/
           sudo cp -r temp/templates/** /home/runner/.local/share/godot/export_templates/4.3.beta3/
           rm -rf temp
       - name: Verifiy godot
