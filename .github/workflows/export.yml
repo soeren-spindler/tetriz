@@ -15,22 +15,32 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install python3
+          sudo apt-get install python3 wget unzip
           pip3 install scons
-      - name: Setup emsdk
-        uses: mymindstorm/setup-emsdk@v14
-        with:
-          # Make sure to set a version number!
-          version: 3.1.64
-          # This is the name of the cache folder.
-          # The cache folder will be placed in the build directory,
-          #  so make sure it doesn't conflict with anything!
-          actions-cache-folder: 'emsdk-cache'
-      - name: Verify emcc
-        run: emcc -v
-      - name: Compile GDExtensions
+      - name: Setup godot
         run: |
-          cd extensions/tetriz_core
-          scons platform=web target=template_release threads=no
+          wget -O Godot.zip https://github.com/godotengine/godot-builds/releases/download/4.3-beta3/Godot_v4.3-beta3_linux.x86_64.zip
+          mkdir .godot_install
+          unzip Godot.zip -d .godot_install
+          mv .godot_install/Godot_v4.3-beta3_linux.x86_64 .godot_install/godot
+          echo "GITHUB_SHA_SHORT=$(pwd)/.godot_install/" >> $GITHUB_ENV
+      - name: Verifiy godot
+        run: godot --version
+      #- name: Setup emsdk
+      #  uses: mymindstorm/setup-emsdk@v14
+      #  with:
+      #    # Make sure to set a version number!
+      #    version: 3.1.64
+      #    # This is the name of the cache folder.
+      #    # The cache folder will be placed in the build directory,
+      #    #  so make sure it doesn't conflict with anything!
+      #    actions-cache-folder: 'emsdk-cache'
+      #- name: Verify emcc
+      #  run: emcc -v
+      #- name: Compile GDExtensions
+      #  run: |
+      #    cd extensions/tetriz_core
+      #    scons platform=web target=template_release threads=no
+      
           
       
